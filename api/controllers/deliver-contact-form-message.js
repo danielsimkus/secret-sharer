@@ -7,14 +7,14 @@ module.exports = {
   description: 'Deliver a contact form message to the appropriate internal channel(s).',
 
 
-  inputs: {
+    inputs: {
 
-    emailAddress: {
-      required: true,
-      type: 'string',
-      description: 'A return email address where we can respond.',
-      example: 'hermione@hogwarts.edu'
-    },
+      emailAddress: {
+        required: true,
+        type: 'string',
+        description: 'A return email address where we can respond.',
+        example: 'hermione@hogwarts.edu'
+      },
 
     topic: {
       required: true,
