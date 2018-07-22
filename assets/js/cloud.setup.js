@@ -13,7 +13,7 @@
 Cloud.setup({
 
   /* eslint-disable */
-  methods: {"create":{"verb":"PUT","url":"/secret","args":[]},"logout":{"verb":"GET","url":"/api/v1/account/logout"},"updatePassword":{"verb":"PUT","url":"/api/v1/account/update-password"},"updateProfile":{"verb":"PUT","url":"/api/v1/account/update-profile"},"updateBillingCard":{"verb":"PUT","url":"/api/v1/account/update-billing-card"},"login":{"verb":"PUT","url":"/api/v1/entrance/login"},"signup":{"verb":"POST","url":"/api/v1/entrance/signup"},"sendPasswordRecoveryEmail":{"verb":"POST","url":"/api/v1/entrance/send-password-recovery-email"},"updatePasswordAndLogin":{"verb":"POST","url":"/api/v1/entrance/update-password-and-login"},"deliverContactFormMessage":{"verb":"POST","url":"/api/v1/deliver-contact-form-message","args":["emailAddress","topic","fullName","message"]}}
+  methods: {"create":{"verb":"PUT","url":"/secret","args":["secret"]},"view":{"verb":"GET","url":"/v/:uuId","args":["uuId"]},"decrypt":{"verb":"PUT","url":"/api/decrypt","args":["key","uuId"]},"logout":{"verb":"GET","url":"/api/v1/account/logout"},"updatePassword":{"verb":"PUT","url":"/api/v1/account/update-password"},"updateProfile":{"verb":"PUT","url":"/api/v1/account/update-profile"},"updateBillingCard":{"verb":"PUT","url":"/api/v1/account/update-billing-card"},"login":{"verb":"PUT","url":"/api/v1/entrance/login"},"signup":{"verb":"POST","url":"/api/v1/entrance/signup"},"sendPasswordRecoveryEmail":{"verb":"POST","url":"/api/v1/entrance/send-password-recovery-email"},"updatePasswordAndLogin":{"verb":"POST","url":"/api/v1/entrance/update-password-and-login"},"deliverContactFormMessage":{"verb":"POST","url":"/api/v1/deliver-contact-form-message","args":["emailAddress","topic","fullName","message"]}}
   /* eslint-enable */
 
 });

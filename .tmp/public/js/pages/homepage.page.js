@@ -15,7 +15,10 @@ parasails.registerPage('homepage', {
     },
     cloudError: '',
     syncing: false,
-    syncingSaving: false
+    key: '',
+    uuId: '',
+    url: '',
+    complete: false
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -34,22 +37,17 @@ parasails.registerPage('homepage', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
-      handleParsingForm: function() {
-        var argins = this.formData;
-        this.formErrors = {};
-        if (argins.secret.length >= 255) {
-          this.formErrors.secret = true;
-        }
-
-        if (Object.keys(this.formErrors).length > 0) {
-          return;
-        }
-
-        return argins;
+    handleParsingForm: function() {
 
     },
-      submitSecretForm: async function() {
-
+    submittedForm: function(key, uuId) {
+      /* Why is this so horrible? I must be doing something wrong! */
+      this.key = key;
+      this.uuId = uuId;
+      this.url = window.location.href + 'v/' + this.uuId;
+      this.complete = true;
+      this.syncing = false;
+      console.log('Complete. Key is ' + this.key + ' and UUID is ' + this.uuId);
     },
 
     // Private methods not tied to a particular DOM event are prefixed with _

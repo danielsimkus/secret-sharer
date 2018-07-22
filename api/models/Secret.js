@@ -1,8 +1,3 @@
-/**
- * User.js
- *
- * A user who can log in to this application.
- */
 
 module.exports = {
 
@@ -15,9 +10,9 @@ module.exports = {
       type: 'string',
       description: 'The hash of the created key, to be compared with their input to validate their secret'
     },
-    uuid: {
+    viewId: {
       type: 'string',
-      description: 'The identified for the secret, passed via the URL to the opener'
+      description: 'The identifier for the secret, passed via the URL to the view controller'
     }
   },
 

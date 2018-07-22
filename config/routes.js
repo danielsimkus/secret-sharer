@@ -16,7 +16,8 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                    { action: 'view-homepage' },
   'PUT /secret':              { action: 'secret/create'},
-  'GET /secret':              { action: 'secret/create'},
+  'GET /v/:uuId':              { action: 'secret/view',   skipAssets: true},
+  'PUT /api/decrypt':              { action: 'secret/decrypt',   skipAssets: true},
 
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗

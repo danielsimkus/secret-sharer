@@ -1,17 +1,23 @@
 module.exports = {
 
 
-  friendlyName: 'Create Secret',
+  friendlyName: 'Decrypt that Secret',
 
 
-  description: 'Create a Secret',
+  description: 'Decrypt that Secret',
 
   inputs: {
-    secret: {
+    key: {
       required: true,
       type: 'string',
       description: 'The secret to be encoded.',
       example: 'password123'
+    },
+    uuId: {
+      required: true,
+      type: 'string',
+      description: 'The uuid passed to the viewpage.',
+      example: 'dasd-asd-4123-dasda'
     }
   },
   exits: {
@@ -20,7 +26,7 @@ module.exports = {
       statusCode: 200,
       outputType: {
         key: "string",
-        uuId: "string"
+        url: "string"
       },
       description: 'Requesting user is a guest, so show the public landing page.',
     },
@@ -37,23 +43,20 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
+    console.log(inputs.uuId);
+    //ToDo: Hash key and compare with one stored with Secret
+    encryptedSecret = 'asdasda';
 
-    if (!inputs.secret) {
-      return exits.secretEmpty();
-    }
-    if (inputs.secret.length > 500) {
-      return exits.secretTooLong();
-    }
-    var key='moo123';
-    var uuId='1234-1234-1234-1234';
-    var encryptedSecret = await sails.helpers.encryptSecret.with({
-      key: key,
-      secret: inputs.secret
-    });
+    decryptedSecret = 'facepalm';
+     /*var decryptedSecret = await sails.helpers.decryptSecret.with({
+       key: inputs.key,
+       secret: encryptedSecret
+     });*/
 
-    // ToDo: Hash Key, and Store hashed version, uuId, and Hashed Secret together
 
-    return exits.success({key:key, uuId:uuId});
+    //ToDo: Delete the secret
+
+    return exits.success(decryptedSecret);
 
   }
 

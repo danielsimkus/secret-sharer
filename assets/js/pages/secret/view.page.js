@@ -1,24 +1,14 @@
-parasails.registerPage('homepage', {
+parasails.registerPage('view', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
+  props: [ 'uuId' ],
   data: {
-    heroHeightSet: false,
-    formData: {
-      secret: ''
-    },
-    formRules: {
-
-    },
-    formErrors: {
-
-    },
-    cloudError: '',
-    syncing: false,
-    key: '',
-    uuId: '',
-    url: '',
-    complete: false
+  },
+  watch: {
+    uuId(value) {
+      this.formData.uuId = value;
+    }
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -37,17 +27,12 @@ parasails.registerPage('homepage', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
 
-    handleParsingForm: function() {
-
-    },
-    submittedForm: function(key, uuId) {
+    submittedForm: function(secret) {
       /* Why is this so horrible? I must be doing something wrong! */
-      this.key = key;
-      this.uuId = uuId;
-      this.url = window.location.href + 'v/' + this.uuId;
+      console.log('submitted?');
+      this.secret = secret;
       this.complete = true;
       this.syncing = false;
-      console.log('Complete. Key is ' + this.key + ' and UUID is ' + this.uuId);
     },
 
     // Private methods not tied to a particular DOM event are prefixed with _

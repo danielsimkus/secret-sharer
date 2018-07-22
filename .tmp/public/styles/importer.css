@@ -138,9 +138,6 @@ img {
   padding-top: 10px;
   margin-top: 0px;
 }
-.modal body {
-  font-family: Helvetica;
-}
 @media screen and (max-width: 600px) {
   .modal .modal-content .modal-header .modal-close-button {
     right: -20px;
@@ -803,6 +800,12 @@ body {
 #homepage #secret-input {
   text-align: left;
   min-height: 150px;
+  max-height: 300px;
+  resize: none;
+}
+#homepage #key-output,
+#homepage #url-output {
+  height: 100%;
 }
 #homepage.uninitialized {
   height: 100%;
