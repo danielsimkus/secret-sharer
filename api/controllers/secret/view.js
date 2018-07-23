@@ -26,10 +26,7 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    if (inputs.uuId === '1234-1234-1234-1234') {
       return exits.success({uuId: inputs.uuId});
-    }
-
   }
 
 

@@ -30,31 +30,46 @@ module.exports = {
       },
       description: 'Requesting user is a guest, so show the public landing page.',
     },
-    secretEmpty: {
+    noStoredSecret: {
       responseType: 'badRequest',
-      description: 'Please provide a secret'
+      description: 'There is no stored secret with the given UUID'
     },
-    secretTooLong: {
+    invalidKey: {
       responseType: 'badRequest',
-      description: 'Secret entered is too long (max 500)'
+      description: 'The provided key is incorrect'
     }
-
   },
 
   fn: async function (inputs, exits) {
 
-    console.log(inputs.uuId);
+    uuId = inputs.uuId;
+    key = inputs.key;
     //ToDo: Hash key and compare with one stored with Secret
-    encryptedSecret = 'asdasda';
+    storedSecret = await Secret.findOne({
+      uuId: uuId
+    });
 
-    decryptedSecret = 'facepalm';
-     /*var decryptedSecret = await sails.helpers.decryptSecret.with({
-       key: inputs.key,
-       secret: encryptedSecret
-     });*/
+    if (!storedSecret) {
+      return exits.noStoredSecret();
+    }
+
+    hashOfKey = await sails.helpers.hashKey(key);
+
+    if (hashOfKey !== storedSecret.hashOfKey) {
+      return exits.invalidKey();
+    }
+
+     var decryptedSecret = await sails.helpers.decryptSecret.with({
+       key: key,
+       secret: storedSecret.encryptedSecret
+     });
 
 
-    //ToDo: Delete the secret
+    await Secret.destroy({
+      where: {
+        uuId: uuId
+      }
+    });
 
     return exits.success(decryptedSecret);
 

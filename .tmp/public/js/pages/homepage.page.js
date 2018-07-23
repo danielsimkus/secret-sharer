@@ -40,6 +40,12 @@ parasails.registerPage('homepage', {
     handleParsingForm: function() {
 
     },
+    copy: function(objectId) {
+      let el = document.getElementById(objectId);
+      el.focus();
+      el.setSelectionRange(0, el.value.length);
+      document.execCommand('copy');
+    },
     submittedForm: function(key, uuId) {
       /* Why is this so horrible? I must be doing something wrong! */
       this.key = key;

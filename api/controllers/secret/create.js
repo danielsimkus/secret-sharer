@@ -44,12 +44,27 @@ module.exports = {
     if (inputs.secret.length > 500) {
       return exits.secretTooLong();
     }
-    var key='moo123';
-    var uuId='1234-1234-1234-1234';
+    // generate between 12 and 26 character random string
+    var key = await sails.helpers.createRandomKey.with({ keyLength: Math.floor(Math.random() * 14) + 12  });
+    do {
+      var c = 1;
+      var uuId = '';
+      while (c < 5) {
+        uuId += (c > 1) ? '-' : '';
+        uuId += await sails.helpers.createRandomKey.with({keyLength: 4, allowSymbols: false});
+        c++;
+      }
+    } while ( await Secret.findOne({uuId: uuId})); // Make sure we've not used a uuId that's already in use
+
     var encryptedSecret = await sails.helpers.encryptSecret.with({
       key: key,
       secret: inputs.secret
     });
+
+    var hashOfKey = await sails.helpers.hashKey(key);
+    console.log({encryptedSecret: encryptedSecret, uuId: uuId, hashOfKey: hashOfKey});
+    var saved = await Secret.create({encryptedSecret: encryptedSecret, uuId: uuId, hashOfKey: hashOfKey});
+    console.log(saved);
 
     // ToDo: Hash Key, and Store hashed version, uuId, and Hashed Secret together
 

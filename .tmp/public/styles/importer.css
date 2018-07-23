@@ -291,6 +291,30 @@ body {
 #page-footer .xs-only {
   display: none;
 }
+.big-icon-container {
+  background-color: #343a40;
+  color: #ffffff;
+  margin-top: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  width: 100%;
+  padding: 15px;
+  min-height: 350px;
+}
+.big-icon {
+  font-size: 9em;
+  text-shadow: 1px 1px 1px #ccc;
+}
+#secret-input {
+  text-align: left;
+  min-height: 150px;
+  max-height: 300px;
+  resize: none;
+}
+#key-output,
+#url-output {
+  height: 100%;
+}
 @media (max-width: 800px) {
   #page-wrap {
     padding-bottom: 75px;
@@ -783,30 +807,6 @@ body {
 #homepage .pep-talk a {
   border-bottom: none;
 }
-#homepage .big-icon-container {
-  background-color: #343a40;
-  color: #ffffff;
-  margin-top: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
-  width: 100%;
-  padding: 15px;
-  min-height: 350px;
-}
-#homepage .big-icon {
-  font-size: 9em;
-  text-shadow: 1px 1px 1px #ccc;
-}
-#homepage #secret-input {
-  text-align: left;
-  min-height: 150px;
-  max-height: 300px;
-  resize: none;
-}
-#homepage #key-output,
-#homepage #url-output {
-  height: 100%;
-}
 #homepage.uninitialized {
   height: 100%;
 }
@@ -833,97 +833,14 @@ body {
     font-size: 34px;
   }
 }
-#welcome {
-  padding-top: 75px;
-  padding-bottom: 75px;
+#secret-input {
+  resize: none;
+  text-align: left;
+  min-height: 150px;
+  max-height: 300px;
 }
-#signup {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#signup .signup-form {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#signup .success-message {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-#confirmed-email {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#confirmed-email .confirmation-message {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-#login {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#login .login-form-container {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#forgot-password {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#forgot-password .forgot-form {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#forgot-password .success-message {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-#new-password {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#new-password .new-password-form {
-  width: 100%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#account-overview {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#account-overview .account-settings-button {
-  width: 150px;
-}
-#account-overview .remove-button {
-  color: #14acc2;
-  text-decoration: underline;
-  cursor: pointer;
-}
-#account-overview .remove-button:hover {
-  color: #000;
-}
-#edit-password {
-  padding-top: 75px;
-  padding-bottom: 75px;
-}
-#edit-profile {
-  padding-top: 75px;
-  padding-bottom: 75px;
+#copy-secret {
+  margin-top: 15px;
 }
 #terms {
   padding-top: 75px;
