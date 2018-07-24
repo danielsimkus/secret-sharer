@@ -253,6 +253,7 @@ module.exports = {
     onlyAllowOrigins: [
        'https://secretsafe.app',
        'https://www.secretsafe.app',
+       'http://localhost'
     ],
 
 
@@ -337,8 +338,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  port: 443,
-  explicitHost: 'secretsafe.app',
+  port: 1337,
 
 
   /**************************************************************************
@@ -358,11 +358,11 @@ module.exports = {
   * > https://sailsjs.com/config/*#?sailsconfigssl                          *
   *                                                                         *
   **************************************************************************/
-   ssl: {
+   /*ssl: {
     ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.ca.crt')),
     key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.key')),
     cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.crt'))
-  },
+  },*/
 
 
 
