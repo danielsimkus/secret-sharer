@@ -22,7 +22,7 @@ module.exports.custom = {
   * > but it can also be used for user-uploaded images, webhooks, etc.      *
   *                                                                         *
   **************************************************************************/
-  baseUrl: 'http://localhost:1337',
+  baseUrl: 'https://secretsafe.app',
 
   /**************************************************************************
   *                                                                         *
@@ -59,8 +59,8 @@ module.exports.custom = {
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'noreply@example.com',
-  fromName: 'The Secret Sharer Team',
+  fromEmailAddress: 'support@secretsafe.app',
+  fromName: 'The Secret Safe Team',
 
   // Email address for receiving support messages & other correspondences.
   internalEmailAddress: 'support+development@example.com',
