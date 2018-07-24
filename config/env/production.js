@@ -148,9 +148,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: [
+         'https://securesafe.app',
+      ]
     },
 
   },
@@ -250,10 +250,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+       'https://secretsafe.app',
+       'https://www.secretsafe.app',
+    ],
 
 
     /***************************************************************************
@@ -337,7 +337,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-  // port: 80,
+   port: 443,
 
 
 
@@ -358,7 +358,11 @@ module.exports = {
   * > https://sailsjs.com/config/*#?sailsconfigssl                          *
   *                                                                         *
   **************************************************************************/
-  // ssl: undefined,
+   ssl: {
+    ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.ca.crt')),
+    key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.key')),
+    cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/secretsafe.app.crt'))
+  },
 
 
 
